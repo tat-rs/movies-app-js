@@ -1,0 +1,161 @@
+@import url(../vendor/normalize.css);
+
+:root {
+  --index: calc(1vw + 1vh);
+  --bg-color: #1a191f;
+}
+
+.page {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-color);
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+.page__content {
+  width: calc(100% - 50px);
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 28px 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.page__header {
+  margin: 0 0 30px;
+}
+
+.header__title {
+  color: #fff;
+  text-decoration: none;
+  font-size: 32px;
+}
+
+.header__form {
+  align-self: center;
+}
+
+.header__search {
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.movies {
+  width: calc(100% - 100px);
+  margin: 0 auto;
+}
+
+.movies__card {
+  position: relative;
+  max-width: 240px;
+}
+
+.movies__title {
+  margin: 0 0 14px;
+  font-size: 20px;
+  line-height: 22px;
+  color: #fff;
+}
+
+.movies__genre {
+  margin: 0;
+  font-size: 16px;
+  line-height: 18px;
+  color: #ffa500;
+}
+
+.movies__image {
+  width: 100%;
+  height: 360px;
+  margin: 0 0 14px;
+}
+
+.movie__average {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #353535;
+  background-color: #353535;
+  color: #fff;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  z-index: 100;
+}
+
+.movies__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px 40px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 825px) {
+
+  .header__title {
+    font-size: 26px;
+  }
+
+  .movies__list {
+    gap: 20px 20px;
+  }
+
+  .movies {
+    width: 100%;
+  }
+
+  .movies__image {
+    height: 320px;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .header__form {
+    width: 100%;
+  }
+
+  .header__search {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 8px 10px;
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .movies__list {
+    gap: 35px;
+  }
+
+  .movies__title {
+    margin: 0 0 10px;
+    font-size: 16px;
+    line-height: 18px;
+  }
+  
+  .movies__genre {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
