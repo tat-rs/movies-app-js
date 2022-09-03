@@ -1,8 +1,23 @@
 const API_URL_POPULAR = 'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1';
 const API_KEY ='a82832f0-0e0f-41e0-a266-af9c197b0037';
+const movieList = document.querySelector('.movies__list');
+const loader = document.querySelector('.loader');
+
+function getClassAverage(rating) {
+  let classRating = '';
+
+  if(rating < 4) {
+    classRating = 'movie__average-red'
+  } else if(rating > 4 & rating < 7) {
+    classRating = 'movie__average-orange'
+  } else {
+    classRating = 'movie__average-green'
+  }
+
+ return classRating;
+}
 
 async function getMovies() {
-  const loader = document.querySelector('.loader');
   loader.classList.add('loader_visible');
   const data = await fetch(API_URL_POPULAR, {
     method: 'GET',
@@ -19,8 +34,6 @@ async function getMovies() {
 
 function renderMovies(cards) {
 
-  const movieList = document.querySelector('.movies__list');
-
   cards.forEach(item => {
     const movieCard = document.createElement('li');
     movieCard.classList.add('movies__card');
@@ -30,7 +43,7 @@ function renderMovies(cards) {
       <p class="movies__genre">${item.genres.map(
         (genre) => ` ${genre.genre}`
       )}</p>
-      ${item.rating ? `<div class="movie__average movie__average-green">${item.rating}</div>` : ""}
+      ${item.rating ? `<div class="movie__average ${getClassAverage(item.rating)}">${item.rating}</div>` : ""}
     `
     movieList.appendChild(movieCard);
   });
