@@ -2,6 +2,8 @@ const API_URL_POPULAR = 'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?
 const API_KEY ='a82832f0-0e0f-41e0-a266-af9c197b0037';
 
 async function getMovies() {
+  const loader = document.querySelector('.loader');
+  loader.classList.add('loader_visible');
   const data = await fetch(API_URL_POPULAR, {
     method: 'GET',
     headers: {
@@ -11,7 +13,8 @@ async function getMovies() {
   })
 
   const movies = await data.json();
-  renderMovies(movies.films)
+  loader.classList.remove('loader_visible');
+  renderMovies(movies.films);
 }
 
 function renderMovies(cards) {
