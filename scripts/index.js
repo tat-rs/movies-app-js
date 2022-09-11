@@ -73,6 +73,7 @@ async function openPopup(movieId) {
   const movie = await resp.json();
 
   popup.classList.add('popup_opened');
+  document.body.classList.add('page_scroll-hidden');
   popup.innerHTML = `
     <div class='popup__container'>
       <img class='popup__image' src=${movie.posterUrl} alt=${movie.nameRu}>
@@ -106,8 +107,10 @@ function closePopupByOverlayClick(evt) {
   }
 }
 
-//объявление функции закрытия попапа
 function closePopup() {
+
+  document.body.classList.remove('page_scroll-hidden');
+
   popup.classList.remove('popup_opened');
   window.removeEventListener('keydown', closePopupByEsc);
   popup.removeEventListener('mousedown', closePopupByOverlayClick);
@@ -137,3 +140,4 @@ async function getMoviesBySearch(text) {
 searchInput.addEventListener('input', (evt) => onInput(evt));
 
 getMovies();
+
