@@ -195,6 +195,8 @@
   font-size: 16px;
   line-height: 22px;
   color: #fff;
+  scrollbar-width: 5px;
+  scrollbar-color: #323235 #ffffff;
 }
 
 .popup__container::-webkit-scrollbar {
