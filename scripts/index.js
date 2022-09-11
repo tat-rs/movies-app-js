@@ -68,13 +68,13 @@ async function openPopup(movieId) {
   popup.innerHTML = `
     <div class="popup__container">
       <img class="popup__image" src=${movie.posterUrl} alt=${movie.nameRu}>
-      <h3 class="popup__subtitle">${movie.nameRu}</h3>
+      <h3 class="popup__subtitle">${movie.nameRu} ${movie.year ? ` (${movie.year})` : ''}</h3>
       <ul class="popup__list">
         <li class="popup__item popup__genres">Жанр: ${movie.genres.map(
           (genre) => ` ${genre.genre}`
         )}</li>
-        <li class="popup__item popup__film-length">Продолжительность: ${movie.filmLength ? `${movie.filmLength} мин.` : ' Не определенно'}</li>
-        <li class="popup__item">Сайт: <a class="popup__link" href=${movie.posterUrlPreview}>${movie.posterUrlPreview}</a></li>
+        <li class="popup__item popup__film-length">Продолжительность: ${movie.filmLength ? `${movie.filmLength} мин.` : ' Нет данных'}</li>
+        <li class="popup__item popup__item_hidden">Сайт: <a class="popup__link" href=${movie.webUrl} target="_blank" rel="noopener">${movie.webUrl}</a></li>
         <li class="popup__item popup__film-desc">Описание: ${movie.description}</li>
       </ul>
       <button class="popup__close" type="button" aria-label="Закрыть">Закрыть</button>
