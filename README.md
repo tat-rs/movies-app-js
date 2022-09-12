@@ -9,12 +9,12 @@
 
 ## Технологии, которые были использованы
 
-* БЭМ,
+* БЭМ
 * Адаптивная верстка: 
-    * медиа-запросы,
-    * flexbox верстка,
-* Js,
-* Запросы к API (<a href="https://kinopoiskapiunofficial.tech/" target="_blank" rel="noopener">Ссылка на документацию API</a>)
+    * медиа-запросы
+    * flexbox верстка
+* Js
+* API (<a href="https://kinopoiskapiunofficial.tech/" target="_blank" rel="noopener">Ссылка на документацию API</a>)
 
 ## Ссылка на сайт
 
