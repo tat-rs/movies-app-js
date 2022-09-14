@@ -10,6 +10,7 @@ import {
   MOVIE_CLASS_RATING_LOW,
   MOVIE_CLASS_RATING_MIDDLE,
   MOVIE_CLASS_RATING_HIGH,
+  movieTemplate,
 } from '../utils/constants.js';
 
 function getClassAverage(rating) {
@@ -42,19 +43,26 @@ async function getMovies() {
 }
 
 function renderMovies(cards) {
-  movieList.innerHTML = '';
 
   cards.forEach(item => {
-    const movieCard = document.createElement('li');
-    movieCard.classList.add('movies__card');
-    movieCard.innerHTML = `
-      <img class='movies__image' src=${item.posterUrl} alt=${item.nameRu}>
-      <h2 class='movies__title'>${item.nameRu}</h2>
-      <p class='movies__genre'>${item.genres.map(
-        (genre) => ` ${genre.genre}`
-      )}</p>
-      ${item.rating ? `<div class='movie__average ${getClassAverage(item.rating)}'>${item.rating}</div>` : ''}
-    `
+    const movieCard = movieTemplate.content.cloneNode(true);
+    const movieImage = movieCard.querySelector('.movies__image');
+    const movieTitle = movieCard.querySelector('.movies__title');
+    const movieGenre = movieCard.querySelector('.movies__genre');
+    const movieRating = movieCard.querySelector('.movie__average');
+
+    movieImage.src = item.posterUrl;
+    movieImage.alt = item.nameRu;
+    movieTitle.textContent = item.nameRu;
+    movieGenre.textContent = item.genres.map(
+      (genre) => genre.genre);
+    if(item.rating) {
+      movieRating.classList.add('movie__average_visible');
+      movieRating.classList.add(getClassAverage(item.rating));
+      movieRating.classList.add(getClassAverage(item.rating));
+      movieRating.textContent = item.rating;
+    }
+    
     movieCard.addEventListener('click', () => {
       openPopup(item.filmId);
     })

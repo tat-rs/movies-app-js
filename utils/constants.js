@@ -8,6 +8,7 @@ export const MOVIE_CLASS_RATING_MIDDLE = 'movie__average-orange';
 export const MOVIE_CLASS_RATING_HIGH = 'movie__average-green';
 
 export const movieList = document.querySelector(".movies__list");
+export const movieTemplate = document.querySelector('template');
 export const loader = document.querySelector(".loader");
 export const popup = document.querySelector('.popup');
 export const searchInput = document.querySelector(".header__search");
